@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "parameters": {
+                    "description": "The database parameters to update.",
+                    "items": {
+                        "description": "Describes the parameters of a database.",
+                        "properties": {
+                            "allowedValues": {
+                                "description": "Specifies the valid range of values for the parameter.",
+                                "type": "string"
+                            },
+                            "applyMethod": {
+                                "description": "<p>Indicates when parameter updates are applied.</p> <p>Can be <code>immediate</code> or <code>pending-reboot</code>.</p>",
+                                "type": "string"
+                            },
+                            "applyType": {
+                                "description": "Specifies the engine-specific parameter type.",
+                                "type": "string"
+                            },
+                            "dataType": {
+                                "description": "Specifies the valid data type for the parameter.",
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "Provides a description of the parameter.",
+                                "type": "string"
+                            },
+                            "isModifiable": {
+                                "description": "A Boolean value indicating whether the parameter can be modified.",
+                                "type": "boolean"
+                            },
+                            "parameterName": {
+                                "description": "Specifies the name of the parameter.",
+                                "type": "string"
+                            },
+                            "parameterValue": {
+                                "description": "Specifies the value of the parameter.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "relationalDatabaseName": {
+                    "description": "The name of your database for which to update parameters.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "relationalDatabaseName",
+                "parameters"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

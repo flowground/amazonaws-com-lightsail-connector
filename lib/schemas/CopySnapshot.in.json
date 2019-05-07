@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "sourceRegion": {
+                    "description": "The AWS Region where the source snapshot is located.",
+                    "enum": [
+                        "us-east-1",
+                        "us-east-2",
+                        "us-west-1",
+                        "us-west-2",
+                        "eu-west-1",
+                        "eu-west-2",
+                        "eu-west-3",
+                        "eu-central-1",
+                        "ca-central-1",
+                        "ap-south-1",
+                        "ap-southeast-1",
+                        "ap-southeast-2",
+                        "ap-northeast-1",
+                        "ap-northeast-2"
+                    ],
+                    "type": "string"
+                },
+                "sourceSnapshotName": {
+                    "description": "The name of the source instance or disk snapshot to be copied.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "targetSnapshotName": {
+                    "description": "The name of the new instance or disk snapshot to be created as a copy.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sourceSnapshotName",
+                "targetSnapshotName",
+                "sourceRegion"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

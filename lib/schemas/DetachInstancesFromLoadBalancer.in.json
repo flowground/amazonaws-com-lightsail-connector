@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "instanceNames": {
+                    "description": "An array of strings containing the names of the instances you want to detach from the load balancer.",
+                    "items": {
+                        "pattern": "\\w[\\w\\-]*\\w",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "loadBalancerName": {
+                    "description": "The name of the Lightsail load balancer.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "loadBalancerName",
+                "instanceNames"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

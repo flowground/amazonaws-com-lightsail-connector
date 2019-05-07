@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "domainEntry": {
+                    "description": "An array of key-value pairs containing information about the domain entry.",
+                    "properties": {
+                        "id": {
+                            "description": "The ID of the domain recordset entry.",
+                            "pattern": ".*\\S.*",
+                            "type": "string"
+                        },
+                        "isAlias": {
+                            "description": "When <code>true</code>, specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer",
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "description": "The name of the domain.",
+                            "type": "string"
+                        },
+                        "options": {
+                            "description": "<p>(Deprecated) The options for the domain entry.</p> <note> <p>In releases prior to November 29, 2017, this parameter was not included in the API response. It is now deprecated.</p> </note>",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "target": {
+                            "description": "<p>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</p> <p>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. Be sure to also set <code>isAlias</code> to <code>true</code> when setting up an A record for a load balancer.</p>",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The type of domain entry (e.g., <code>SOA</code> or <code>NS</code>).",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "domainName": {
+                    "description": "The name of the domain recordset to update.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "domainName",
+                "domainEntry"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

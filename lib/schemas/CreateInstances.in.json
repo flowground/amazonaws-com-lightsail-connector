@@ -1,0 +1,105 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "availabilityZone": {
+                    "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-2a</code> (case sensitive). You can get a list of Availability Zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include Availability Zones</code> parameter to your request.",
+                    "type": "string"
+                },
+                "blueprintId": {
+                    "description": "The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or <code>app_lamp_7_0</code>). Use the get blueprints operation to return a list of available images (or <i>blueprints</i>).",
+                    "pattern": ".*\\S.*",
+                    "type": "string"
+                },
+                "bundleId": {
+                    "description": "The bundle of specification information for your virtual private server (or <i>instance</i>), including the pricing plan (e.g., <code>micro_1_0</code>).",
+                    "pattern": ".*\\S.*",
+                    "type": "string"
+                },
+                "customImageName": {
+                    "description": "<p>(Deprecated) The name for your custom image.</p> <note> <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now deprecated.</p> </note>",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "instanceNames": {
+                    "description": "The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: <code>[\"MyFirstInstance\",\"MySecondInstance\"]</code> ",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "keyPairName": {
+                    "description": "The name of your key pair.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "<p>The tag keys and optional values to add to the resource during create.</p> <p>To tag a resource after it has been created, see the <code>tag resource</code> operation.</p>",
+                    "items": {
+                        "description": "<p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p> <p>For more information about tags in Lightsail, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags\">Lightsail Dev Guide</a>.</p>",
+                        "properties": {
+                            "key": {
+                                "description": "<p>The key of the tag.</p> <p>Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in UTF-8, or the following characters: + - = . _ : / @</p>",
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "<p>The value of the tag.</p> <p>Constraints: Tag values accept a maximum of 256 letters, numbers, spaces in UTF-8, or the following characters: + - = . _ : / @</p>",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "userData": {
+                    "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get -y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image\">Dev Guide</a>.</p> </note>",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "instanceNames",
+                "availabilityZone",
+                "blueprintId",
+                "bundleId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

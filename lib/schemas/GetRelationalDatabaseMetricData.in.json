@@ -1,0 +1,135 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "endTime": {
+                    "description": "<p>The end of the time interval from which to get metric data.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input <code>1538424000</code> as the end time.</p> </li> </ul>",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "metricName": {
+                    "description": "The name of the metric data to return.",
+                    "enum": [
+                        "CPUUtilization",
+                        "DatabaseConnections",
+                        "DiskQueueDepth",
+                        "FreeStorageSpace",
+                        "NetworkReceiveThroughput",
+                        "NetworkTransmitThroughput"
+                    ],
+                    "type": "string"
+                },
+                "period": {
+                    "description": "The granularity, in seconds, of the returned data points.",
+                    "maximum": 86400,
+                    "minimum": 60,
+                    "type": "integer"
+                },
+                "relationalDatabaseName": {
+                    "description": "The name of your database from which to get metric data.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "<p>The start of the time interval from which to get metric data.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input <code>1538424000</code> as the start time.</p> </li> </ul>",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "statistics": {
+                    "description": "The array of statistics for your metric data request.",
+                    "items": {
+                        "enum": [
+                            "Minimum",
+                            "Maximum",
+                            "Sum",
+                            "Average",
+                            "SampleCount"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "unit": {
+                    "description": "The unit for the metric data request.",
+                    "enum": [
+                        "Seconds",
+                        "Microseconds",
+                        "Milliseconds",
+                        "Bytes",
+                        "Kilobytes",
+                        "Megabytes",
+                        "Gigabytes",
+                        "Terabytes",
+                        "Bits",
+                        "Kilobits",
+                        "Megabits",
+                        "Gigabits",
+                        "Terabits",
+                        "Percent",
+                        "Count",
+                        "Bytes/Second",
+                        "Kilobytes/Second",
+                        "Megabytes/Second",
+                        "Gigabytes/Second",
+                        "Terabytes/Second",
+                        "Bits/Second",
+                        "Kilobits/Second",
+                        "Megabits/Second",
+                        "Gigabits/Second",
+                        "Terabits/Second",
+                        "Count/Second",
+                        "None"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "relationalDatabaseName",
+                "metricName",
+                "period",
+                "startTime",
+                "endTime",
+                "unit",
+                "statistics"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

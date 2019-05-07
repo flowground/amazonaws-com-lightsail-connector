@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "diskName": {
+                    "description": "The unique Lightsail disk name (e.g., <code>my-disk</code>).",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "diskPath": {
+                    "description": "The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).",
+                    "pattern": ".*\\S.*",
+                    "type": "string"
+                },
+                "instanceName": {
+                    "description": "The name of the Lightsail instance where you want to utilize the storage disk.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "diskName",
+                "instanceName",
+                "diskPath"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

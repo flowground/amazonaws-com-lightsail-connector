@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "instanceName": {
+                    "description": "The name of the instance for which you want to open the public ports.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "portInfo": {
+                    "description": "An array of key-value pairs containing information about the port mappings.",
+                    "properties": {
+                        "fromPort": {
+                            "description": "The first port in the range.",
+                            "maximum": 65535,
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        "protocol": {
+                            "description": "The protocol. ",
+                            "enum": [
+                                "tcp",
+                                "all",
+                                "udp"
+                            ],
+                            "type": "string"
+                        },
+                        "toPort": {
+                            "description": "The last port in the range.",
+                            "maximum": 65535,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "portInfo",
+                "instanceName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

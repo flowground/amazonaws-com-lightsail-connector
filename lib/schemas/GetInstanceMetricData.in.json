@@ -1,0 +1,135 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "endTime": {
+                    "description": "The end time of the time period.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "instanceName": {
+                    "description": "The name of the instance for which you want to get metrics data.",
+                    "pattern": "\\w[\\w\\-]*\\w",
+                    "type": "string"
+                },
+                "metricName": {
+                    "description": "The metric name to get data about. ",
+                    "enum": [
+                        "CPUUtilization",
+                        "NetworkIn",
+                        "NetworkOut",
+                        "StatusCheckFailed",
+                        "StatusCheckFailed_Instance",
+                        "StatusCheckFailed_System"
+                    ],
+                    "type": "string"
+                },
+                "period": {
+                    "description": "The granularity, in seconds, of the returned data points.",
+                    "maximum": 86400,
+                    "minimum": 60,
+                    "type": "integer"
+                },
+                "startTime": {
+                    "description": "The start time of the time period.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "statistics": {
+                    "description": "The instance statistics. ",
+                    "items": {
+                        "enum": [
+                            "Minimum",
+                            "Maximum",
+                            "Sum",
+                            "Average",
+                            "SampleCount"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "unit": {
+                    "description": "The unit. The list of valid values is below.",
+                    "enum": [
+                        "Seconds",
+                        "Microseconds",
+                        "Milliseconds",
+                        "Bytes",
+                        "Kilobytes",
+                        "Megabytes",
+                        "Gigabytes",
+                        "Terabytes",
+                        "Bits",
+                        "Kilobits",
+                        "Megabits",
+                        "Gigabits",
+                        "Terabits",
+                        "Percent",
+                        "Count",
+                        "Bytes/Second",
+                        "Kilobytes/Second",
+                        "Megabytes/Second",
+                        "Gigabytes/Second",
+                        "Terabytes/Second",
+                        "Bits/Second",
+                        "Kilobits/Second",
+                        "Megabits/Second",
+                        "Gigabits/Second",
+                        "Terabits/Second",
+                        "Count/Second",
+                        "None"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "instanceName",
+                "metricName",
+                "period",
+                "startTime",
+                "endTime",
+                "unit",
+                "statistics"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
