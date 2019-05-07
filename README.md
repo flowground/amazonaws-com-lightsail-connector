@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon Lightsail MSP Connector
+# ![LOGO](logo.png) Amazon Lightsail **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon Lightsail API (version 2016-11-28).
+A generated **flow**ground connector for the Amazon Lightsail API (version 2016-11-28).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/lightsail/2016-11-28/swagger.json<br/>
-Generated at: 2019-05-07T11:16:14+03:00
+Generated at: 2019-05-07T17:35:55+03:00
 
 ## API Description
 
@@ -1319,7 +1319,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-lightsail-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-lightsail-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
